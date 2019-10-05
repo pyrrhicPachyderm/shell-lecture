@@ -6,6 +6,10 @@
 %\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true] %Remove drop shadow on title page box
 %\setbeamertemplate{frametitle}[default][center] %Centre the titles of frames
 
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\newcommand\hyphen{\char`\-}
+
 \usepackage{siunitx}
 
 \usepackage{xcolor}
@@ -24,7 +28,7 @@
 
 \graphicspath{{./figures/}}
 
-
+\renewcommand\emph[1]{\textbf{#1}}
 
 \title[Command Line \& Shell]{The Command Line, Shell and Shell Scripting}
 %\subtitle{\vspace{2mm}\small{
@@ -42,6 +46,8 @@
 \begin{frame}
 	\titlepage
 \end{frame}
+
+\section{Introduction}
 
 \begin{frame}{What is the Shell?}
 	\begin{columns}[t]
@@ -91,5 +97,82 @@
 	
 	On Windows via Cygwin or WSL.
 \end{frame}
+
+\section{Basic Commands}
+
+\begin{frame}{UNIX Directories}
+	\begin{itemize}
+		\item \texttt{/} is the root directory
+		\item \texttt{\textasciitilde} is your user's home directory: \texttt{/home/abc123/}
+		\item \texttt{.} is the current directory
+		\item \texttt{..} moves up one directory
+	\end{itemize}
+	Paths starting with \texttt{/} or \texttt{\textasciitilde} are \emph{absolute paths}.
+	
+	Others are \emph{relative paths}, and start from the current directory.
+\end{frame}
+
+\begin{frame}{Moving Around}
+	\begin{itemize}
+		\item \texttt{pwd}: Print Working Directory
+		\item \texttt{cd}: Change Directory
+		\begin{itemize}
+			\item \texttt{cd \hyphen} goes to previous directory
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{What's Here?}
+	\begin{itemize}
+		\item \texttt{ls}: LiSt
+		\begin{itemize}
+			\item \texttt{ls \hyphen l} gives extra information
+			\item \texttt{ls \hyphen a} includes hidden files/folders
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Changing Stuff}
+	\begin{itemize}
+		\item \texttt{mkdir}: MaKe DIRectory
+		\item \texttt{rmdir}: ReMove empty DIRectory
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{More Changing Stuff}
+	\begin{itemize}
+		\item \texttt{touch}: create a blank file, change last modified date
+		\item \texttt{cp}: CoPy a file/directory
+		\item \texttt{mv}: MoVe/rename a file/directory
+		\item \texttt{rm}: ReMove a file
+		\begin{itemize}
+			\item \texttt{rm \hyphen i} asks confirmation: safer
+			\item \texttt{rm \hyphen r} removes a directory and everything inside
+		\end{itemize}
+	\end{itemize}
+	\note{
+		There is no trash for \texttt{rm}!
+	}
+\end{frame}
+
+\begin{frame}{Viewing Files}
+	\begin{itemize}
+		\item \texttt{cat}: print a file, or conCATenate several
+		\item \texttt{more}: view a file interactively
+		\item \texttt{less}: \texttt{more}, but better
+	\end{itemize}
+	\note{
+		There is no trash for \texttt{rm}!
+	}
+\end{frame}
+
+\begin{frame}{Text Editors}
+	\begin{itemize}
+		\item \texttt{nano}: simple, useful for quick stuff
+		\item \texttt{vim}, \texttt{emacs}: super complicated \& super powerful
+	\end{itemize}
+\end{frame}
+
+\section{How Stuff Works}
 
 \end{document}
