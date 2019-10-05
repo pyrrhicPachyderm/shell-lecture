@@ -1,4 +1,4 @@
-\documentclass[pdf,usenames,dvipsnames]{beamer}%usenames and dvipsnames are for colours.
+\documentclass[pdf,usenames,dvipsnames,14pt]{beamer}%usenames and dvipsnames are for colours.
 \mode<presentation>{}
 \usetheme{Madrid}
 \usecolortheme{seahorse}%seagull?
@@ -50,19 +50,46 @@
 		\colorlet{shellcol1}{white}
 		\begin{tikzpicture}
 			%Circles
-			\draw [fill=shellcol1] (0,0) circle (3.4);
-			\draw [fill=shellcol2] (0,0) circle (2.6);
-			\draw [fill=shellcol1] (0,0) circle (1.8);
-			\draw [fill=shellcol2] (0,0) circle (1);
+			\draw [fill=shellcol2] (0,0) circle (3.5);
+			\draw [fill=shellcol1] (0,0) circle (2.5);
+			\draw [fill=shellcol2] (0,0) circle (1.5);
 			%Labels
-			\node at (0,2.9) {Application};
-			\node at (0,2.1) {Shell};
-			\node at (0,1.3) {Kernel};
+			\node at (0,2.95) {Shell};
+			\node at (0,1.9) {Kernel};
 			\node at (0,0) {Hardware};
 		\end{tikzpicture}
 	\column{0.3\textwidth}
 		Interface between user and operating system kernel.
 	\end{columns}
+	\note{
+		Being replaced by Graphical User Interfaces more these days.
+	}
+\end{frame}
+
+\begin{frame}{Why Shell?}
+	\begin{itemize}
+		\item Automisation
+		\item Reproducibility
+		\item Scripting
+		\begin{itemize}
+			\item Call other programs
+			\item Manipulate files
+			\item String utilities
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Which Shell?}
+	\begin{itemize}
+		\item \texttt{sh}: the Bourne Shell by Stephen Bourne, 1977
+		\item \texttt{bash}: the Bourne Again SHell, 1989
+		\item \texttt{zsh}, \texttt{ksh}, \texttt{tcsh}, \texttt{rc}\dots
+	\end{itemize}
+	We will use \texttt{bash}.
+	
+	Default on most Linux distros and Mac OS X.
+	
+	On Windows via Cygwin or WSL.
 \end{frame}
 
 \end{document}
