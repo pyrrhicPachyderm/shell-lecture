@@ -7,8 +7,10 @@
 %\setbeamertemplate{frametitle}[default][center] %Centre the titles of frames
 
 \usepackage[T1]{fontenc}
-\usepackage{lmodern}
+\usepackage{lmodern} %Makes \textasciitilde not raised.
+\usepackage{inconsolata} %A nice monospace font
 \newcommand\hyphen{\char`\-}
+\newcommand\textasciicaret{\textasciicircum}
 
 \usepackage{siunitx}
 
@@ -169,6 +171,10 @@
 \begin{frame}{Text Editors}
 	\begin{itemize}
 		\item \texttt{nano}: simple, useful for quick stuff
+		\begin{itemize}
+			\item \texttt{\textasciicaret S} to save
+			\item \texttt{\textasciicaret X} to exit
+		\end{itemize}
 		\item \texttt{vim}, \texttt{emacs}: super complicated \& super powerful
 	\end{itemize}
 \end{frame}
