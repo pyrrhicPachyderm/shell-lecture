@@ -330,6 +330,74 @@
 	}
 \end{frame}
 
+\begin{frame}{Variables}
+	Programming's no good without variables.
+	Shell's variables are all strings.
+	
+	Assign with \texttt{=}, no spaces!
+	\begin{itemize}
+		\item \texttt{foo=sometext}
+		\item \texttt{bar="Some Text"}
+	\end{itemize}
+	Access with \texttt{\$}.
+	\begin{itemize}
+		\item \texttt{echo \$foo}
+		\item \texttt{echo \$bar}
+	\end{itemize}
+	\note{
+		Accessed variables are treated just like code.
+	}
+\end{frame}
+
+\begin{frame}{Quoting}
+	Variables are expanded inside double quotes, but not single.
+	\begin{itemize}
+		\item \texttt{echo '\$foo'}
+		\item \texttt{echo "\$foo"}
+	\end{itemize}
+	Use quotes to keep things quoted.
+	\begin{itemize}
+		\item \texttt{bar="Some\ \ \ \ Text"}
+		\item \texttt{echo \$bar}
+		\item \texttt{echo "\$bar"}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Command Line Arguments}
+	Arguments to your script are in variables.
+	\begin{itemize}
+		\item \texttt{\$0}: the command itself
+		\item \texttt{\$1}: the first argument
+		\item \texttt{\$2}: the second argument
+		\item \texttt{\$\#}: the number of arguments (excludes \texttt{\$0})
+		\item \texttt{"\$@"}: all the arguments (quote it!)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Types of Variable}
+	\texttt{readonly} variables can't be changed later.
+	\begin{itemize}
+		\item \texttt{readonly blah="Can't touch this"}
+	\end{itemize}
+	\texttt{export} variables to make them visible to programs you call.
+	\begin{itemize}
+		\item \texttt{export GSL\_RNG\_SEED=42}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Variables in the Script}
+	\begin{verbatim}
+		#!/bin/bash
+		
+		readonly usage="Usage: news URL OUTFILE"
+		
+		url="$1"
+		outfile="$2"
+		
+		echo "$usage"
+	\end{verbatim}
+\end{frame}
+
 
 
 \end{document}
