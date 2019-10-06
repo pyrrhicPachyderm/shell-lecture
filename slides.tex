@@ -164,6 +164,8 @@
 \begin{frame}{Viewing Files}
 	\begin{itemize}
 		\item \texttt{cat}: print a file, or conCATenate several
+		\item \texttt{head}: print the first 10 lines of a file
+		\item \texttt{tail}: print the last 10 lines of a file
 		\item \texttt{more}: view a file interactively
 		\item \texttt{less}: \texttt{more}, but better
 	\end{itemize}
@@ -179,10 +181,57 @@
 			\item \texttt{\textasciicaret S} to save
 			\item \texttt{\textasciicaret X} to exit
 		\end{itemize}
-		\item \texttt{vim}, \texttt{emacs}: super complicated \& super powerful
+		\item \texttt{vim}, \texttt{emacs}: complicated \& super powerful
 	\end{itemize}
 \end{frame}
 
 \section{How Stuff Works}
+
+\begin{frame}{Structure of a Command}
+	\texttt{command argument1 argument2 \dots}
+	\begin{itemize}
+		\item \texttt{mv misspelled.csv spelled.csv}
+	\end{itemize}
+	
+	Arguments with spaces need quotes.
+	\begin{itemize}
+		\item \texttt{mv 'Old File.txt' 'New File.txt'}
+	\end{itemize}
+	\note{
+		Many commands can take different numbers of arguments.
+	}
+\end{frame}
+
+\begin{frame}{Options}
+	Options can normally be mixed with arguments.
+	
+	Short options start with a dash and are one character.
+	\begin{itemize}
+		\item \texttt{rm \hyphen r examples/}
+		\item \texttt{rm examples/ \hyphen r}
+	\end{itemize}
+	
+	Long options start with two dashes and are multiple characters.
+	\begin{itemize}
+		\item \texttt{rm \hyphen\hyphen recursive examples/}
+		\item \texttt{rm examples/ \hyphen\hyphen recursive}
+	\end{itemize}
+	
+	Some nasty commands (\texttt{find}) have long options with one dash.
+\end{frame}
+
+\begin{frame}{More Options}
+	Short options can be combined. The following are the same:
+	\begin{itemize}
+		\item \texttt{grep \hyphen r \hyphen F \hyphen i "vegetable"}
+		\item \texttt{grep \hyphen rFi "vegetable"}
+	\end{itemize}
+	Some options take their own arguments.
+	\begin{itemize}
+		\item \texttt{head data.csv \hyphen n5}
+		\item \texttt{head data.csv \hyphen n 5}
+		\item \texttt{head data.csv \hyphen\hyphen lines 5}
+	\end{itemize}
+\end{frame}
 
 \end{document}
