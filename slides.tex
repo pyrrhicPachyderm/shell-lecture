@@ -398,6 +398,53 @@
 	\end{verbatim}
 \end{frame}
 
+\begin{frame}{Flow Control}
+	Programming also needs conditionals (\texttt{if}) and loops (\texttt{while}, \texttt{for}).
+	
+	But first, we need return values.
+	\begin{itemize}
+		\item \texttt{\$?}: the return value of the last command
+		\item 0 is success
+		\item Anything else is failure
+	\end{itemize}
+\end{frame}
 
+\begin{frame}[fragile]{Conditionals}
+	\texttt{if} executes if the command succeeds, and not otherwise.
+	\begin{verbatim}
+		if command
+		then
+		    ...
+		fi
+	\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{More Conditionals}
+	It can be accompanied by \texttt{elif} and \texttt{else}.
+	\begin{verbatim}
+		if command; then
+		    ...
+		elif command; then
+		    ...
+		else
+		    ...
+		fi
+	\end{verbatim}
+\end{frame}
+
+\begin{frame}{Testing}
+	\texttt{test} is designed for \texttt{if}.
+	\begin{itemize}
+		\item \texttt{test blah = blah}
+		\item \texttt{test 2 \hyphen eq 3}
+		\item \texttt{test blah = blah \hyphen a ! horse = dog}
+	\end{itemize}
+	
+	\texttt{[} is another form of \texttt{test}. The last argument must be \texttt{]}.
+	\begin{itemize}
+		\item \texttt{[ 2 \hyphen eq 3}
+		\item \texttt{[ 2 \hyphen eq 3 ]}
+	\end{itemize}
+\end{frame}
 
 \end{document}
