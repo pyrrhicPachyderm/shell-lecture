@@ -26,9 +26,11 @@
 }
 \urlstyle{same} %URLs are set in the font of the surrounding text
 
+\usepackage{listings}
+
 %\definecolor{GoodGreen}{RGB}{0,140,0}
 
-\graphicspath{{./figures/}}
+\graphicspath{{./images/}}
 
 \renewcommand\emph[1]{\textbf{#1}}
 
@@ -43,6 +45,8 @@
 \date{}
 
 \begin{document}
+
+\lstset{aboveskip=0pt, belowskip=0pt} %Remove the extra space in listings.
 
 % title frame
 \begin{frame}
@@ -232,6 +236,92 @@
 		\item \texttt{head data.csv \hyphen n 5}
 		\item \texttt{head data.csv \hyphen\hyphen lines 5}
 	\end{itemize}
+\end{frame}
+
+\begin{frame}{Getting Help}
+	Use the MANual, \texttt{man}:
+	\begin{itemize}
+		\item \texttt{man ls}
+	\end{itemize}
+	Many commands have their own help.
+	\begin{itemize}
+		\item \texttt{ls --help}
+	\end{itemize}
+	Search man pages using \texttt{/}
+\end{frame}
+
+\begin{frame}{Interlude}
+	Poke around the \texttt{man} pages of some of the commands we've used. Look for helpful options.
+	
+	We'll start scripting next!
+\end{frame}
+
+\section{Scripting}
+
+\begin{frame}{Scripting}
+	We can use shell as a programming language.
+	
+	Let's use it to write an example program.
+	
+	We want to download a news article from the internet.
+\end{frame}
+
+\begin{frame}{Let's Make Things More Fun}
+	\begin{figure}
+		\includegraphics[height=0.7\textheight]{substitutions}
+	\end{figure}
+	``xkcd'' by Randall Munroe
+\end{frame}
+
+\begin{frame}{What Do We Need To Do?}
+	\begin{itemize}
+		\item Get the URL from the command line arguments.
+		\item Get the output filename from the arguments.
+		\item Download the webpage.
+		\item Perform the substititions.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Shebang!}
+	The computer needs to know our script is a shell script.
+	Is it \texttt{bash}, \texttt{python}, \texttt{R}?
+	
+	We use a shebang: \texttt{\#!}
+	
+	This goes on the first line, then the interpreter to run the program.
+	\begin{itemize}
+		\item \texttt{\#!/bin/bash}
+		\item \texttt{\#!/usr/bin/env Rscript}
+		\item \texttt{\#!/usr/bin/env python3}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{A Simple Script}
+	\begin{verbatim}
+		#!/bin/bash
+		
+		echo "Usage: news URL OUTFILE"
+	\end{verbatim}
+\end{frame}
+
+\begin{frame}{Running the Script}
+	\texttt{./news}
+	
+	But we need to set the permissions, as it is not exectable.
+	
+	\texttt{chmod}: CHange MODe
+	\begin{itemize}
+		\item \texttt{chmod u+x news}
+	\end{itemize}
+	Adds eXecute permission for the User.
+	\begin{itemize}
+		\item User, Group, Other
+		\item Read, Write, eXecute
+	\end{itemize}
+	\texttt{chmod -w} is good for protecting data.
+	\note{
+		\texttt{ls \hyphen l}
+	}
 \end{frame}
 
 \end{document}
