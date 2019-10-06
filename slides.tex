@@ -526,12 +526,17 @@
 	The shell does this itself, not our program.
 \end{frame}
 
-\begin{frame}{Command Substitution}
+\begin{frame}[fragile]{Command Substitution}
 	Command substitution makes output from a command into shell text.
 	\begin{itemize}
 		\item \texttt{foo=\$(ls)}
 		\item \texttt{bar=\$(cat slides.tex)}
 	\end{itemize}
+	\begin{verbatim}
+		for file in $(ls); do
+		    echo "File: $file"
+		done
+	\end{verbatim}
 \end{frame}
 
 \end{document}
