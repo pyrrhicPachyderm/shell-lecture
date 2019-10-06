@@ -512,4 +512,26 @@
 	\end{verbatim}
 \end{frame}
 
+\section{Miscellaneous}
+
+\begin{frame}{Globbing}
+	The shell expands wildcards for us.
+	\begin{itemize}
+		\item \texttt{echo *.txt}
+		\item \texttt{echo '*.txt'}
+		\item \texttt{echo "*.txt"}
+		\item \texttt{echo *'.txt'}
+		\item \texttt{echo *".txt"}
+	\end{itemize}
+	The shell does this itself, not our program.
+\end{frame}
+
+\begin{frame}{Command Substitution}
+	Command substitution makes output from a command into shell text.
+	\begin{itemize}
+		\item \texttt{foo=\$(ls)}
+		\item \texttt{bar=\$(cat slides.tex)}
+	\end{itemize}
+\end{frame}
+
 \end{document}
