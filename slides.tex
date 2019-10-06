@@ -330,6 +330,8 @@
 	}
 \end{frame}
 
+\section{Variables}
+
 \begin{frame}{Variables}
 	Programming's no good without variables.
 	Shell's variables are all strings.
@@ -398,6 +400,8 @@
 	\end{verbatim}
 \end{frame}
 
+\section{Flow Control}
+
 \begin{frame}{Flow Control}
 	Programming also needs conditionals (\texttt{if}) and loops (\texttt{while}, \texttt{for}).
 	
@@ -437,7 +441,7 @@
 	\begin{itemize}
 		\item \texttt{test blah = blah}
 		\item \texttt{test 2 \hyphen eq 3}
-		\item \texttt{test blah = blah \hyphen a ! horse = dog}
+		\item \texttt{test ! horse = dog}
 	\end{itemize}
 	
 	\texttt{[} is another form of \texttt{test}. The last argument must be \texttt{]}.
@@ -445,6 +449,67 @@
 		\item \texttt{[ 2 \hyphen eq 3}
 		\item \texttt{[ 2 \hyphen eq 3 ]}
 	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Loops}
+	\begin{verbatim}
+		while command
+		do
+		    ...
+		done
+	\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{A While Loop}
+	\begin{verbatim}
+		while [ "$foo" != aaaaaaa ]; do
+		    echo "$foo"
+		    foo="a$foo"
+		done
+	\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{More Loops}
+	\begin{verbatim}
+		for variable in string1 string2 string3
+		do
+		    ...
+		done
+	\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{A For Loop}
+	\begin{verbatim}
+		for name in John Mary Poppy; do
+		    echo "Hello $name"
+		done
+	\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Range Notation}
+	\begin{verbatim}
+		for i in {1..5}; do
+		    echo "Iteration $i"
+		done
+	\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Conditionals in the Script}
+	\begin{verbatim}
+		#!/bin/bash
+		
+		readonly usage="Usage: news URL OUTFILE"
+		
+		if [ $# -ne 2 ]; then
+		    echo "$usage"
+		    exit 1
+		fi
+		
+		url="$1"
+		outfile="$2"
+		
+		echo Working
+	\end{verbatim}
 \end{frame}
 
 \end{document}
