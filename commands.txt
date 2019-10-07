@@ -1,0 +1,145 @@
+pwd
+cd /
+pwd
+cd
+pwd
+cd Documents
+pwd
+cd ..
+pwd
+cd -
+pwd
+ls
+cd -
+ls
+cd /
+ls
+cd ~
+
+mkdir shell-lecture
+rmdir shell-lecture
+mkdir shell-lecture
+cd shell-lecture
+touch a.txt
+ls
+touch b.txt c.txt
+ls
+cp c.txt d.txt
+ls
+mv d.txt e.txt
+ls
+rm e.txt
+ls
+rm -i c.txt
+ls
+cd ..
+rmdir shell-lecture #Should fail
+rm -r -i shell-lecture
+
+#Now create a text file in your home directory, say called blah.txt.
+#Put a bunch of random junk in it; maybe 50 lines or so.
+cat blah.txt
+head blah.txt
+tail blah.txt
+more blah.txt #Space until it's finished.
+less blah.txt #q to quit
+
+echo hello
+echo cat dog fish
+echo cat       dog    fish
+
+nano blah.txt
+#Ctrl S to save
+#Ctrl X to exit
+
+mkdir shell-lecture
+cd shell-lecture
+touch misspelled.csv
+mv misspelled.csv spelled.csv
+touch 'Old File.txt'
+mv 'Old File.txt' 'New File.txt'
+
+man ls
+man cat
+man mv
+man rm
+man touch
+
+foo=sometext
+bar="Some Text"
+echo $foo
+echo $bar
+echo '$foo'
+echo "$foo"
+
+bar="Some     Text"
+echo $bar
+echo "$bar"
+
+readonly blah="Can't touch this"
+blah="Can too" #Should fail
+
+test blah = blah
+echo $?
+test blah = bleh
+echo $?
+test 2 -eq 3
+echo $?
+test 2 -eq 2
+echo $?
+test ! horse = dog
+echo $?
+[ 2 -eq 3 #Should fail
+[ 2 -eq 3 ]
+echo $?
+
+foo=dog
+if [ $foo = dog ]; then echo Worked; fi
+foo=cat
+if [ $foo = dog ]; then echo Worked; fi
+
+foo=""
+while [ "$foo" != aaaaaaaa ]; do echo "$foo"; foo="a$foo"; done
+
+for name in John Mary Poppy; echo "Hello $name"; done
+for i in {1..5}; do echo "Iteration $i"; done
+
+touch a.txt b.txt a.csv b.csv
+echo *.txt
+echo '*.txt'
+echo "*.txt"
+echo *'.txt'
+echo *".txt"
+
+foo=$(ls)
+echo $foo
+echo "$foo"
+foo="$(ls)"
+echo $foo
+echo "$foo"
+
+for file in $(ls); do echo "File: $file"; done
+
+wget www.example.com
+ls
+wget www.example.com -O example.html
+ls
+wget www.example.com -q -O example.html
+ls
+
+grep cat #Type some stuff, Ctrl C when finished
+grep "cat"
+grep "c.t"
+grep "ca*t"
+grep "c.*t"
+grep "[Cc]at"
+
+sed s/car/cat/
+sed s/car/cat/g
+
+wget https://en.wikipedia.org/wiki/Electric_car -O car.html
+sed s/car/cat/g < car.html
+sed s/car/cat < car.html > cat.html
+ls | sed s/car/cat/g
+
+wget www.example.com -q -O -
