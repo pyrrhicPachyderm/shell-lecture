@@ -143,3 +143,6 @@ sed s/car/cat < car.html > cat.html
 ls | sed s/car/cat/g
 
 wget www.example.com -q -O -
+
+cd ..
+rm -ri shell-lecture
