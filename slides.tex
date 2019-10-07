@@ -662,4 +662,21 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}{Piping}
+	\begin{itemize}
+		\item \texttt{<} gets standard in from a file
+		\item \texttt{>} puts standard out to a file
+		\item \texttt{|} send standard out from one command to standard in from the next
+		\begin{itemize}
+			\item like \texttt{\%>\%} in \texttt{tidyverse}
+		\end{itemize}
+	\end{itemize}
+	Examples:
+	\begin{itemize}
+		\item \texttt{sed "s/car/cat/g" < car.html}
+		\item \texttt{sed "s/car/cat/g" < car.html > cat.html}
+		\item \texttt{ls | sed "s/car/cat/g"}
+	\end{itemize}
+\end{frame}
+
 \end{document}
