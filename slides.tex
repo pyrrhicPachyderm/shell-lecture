@@ -10,6 +10,7 @@
 \usepackage{lmodern} %Makes \textasciitilde not raised.
 %\usepackage{inconsolata} %A nice monospace font that is too indistinguishable from tehe default font
 \newcommand\hyphen{\char`\-}
+\newcommand\doublehyphen{{\hyphen}{\hyphen}}
 \newcommand\textasciicaret{\textasciicircum}
 
 \usepackage{siunitx}
@@ -223,8 +224,8 @@
 	
 	Long options start with two dashes and are multiple characters.
 	\begin{itemize}
-		\item \texttt{rm \hyphen\hyphen recursive examples/}
-		\item \texttt{rm examples/ \hyphen\hyphen recursive}
+		\item \texttt{rm \doublehyphen recursive examples/}
+		\item \texttt{rm examples/ \doublehyphen recursive}
 	\end{itemize}
 	
 	Some nasty commands (\texttt{find}) have long options with one dash.
@@ -242,7 +243,7 @@
 	\begin{itemize}
 		\item \texttt{head data.csv \hyphen n5}
 		\item \texttt{head data.csv \hyphen n 5}
-		\item \texttt{head data.csv \hyphen\hyphen lines 5}
+		\item \texttt{head data.csv \doublehyphen lines 5}
 	\end{itemize}
 \end{frame}
 
