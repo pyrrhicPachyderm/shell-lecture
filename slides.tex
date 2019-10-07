@@ -506,8 +506,6 @@
 		
 		url="$1"
 		outfile="$2"
-		
-		echo Working
 	\end{verbatim}
 \end{frame}
 
@@ -550,6 +548,70 @@
 	We can use \texttt{\hyphen O} to set the output file.
 	\begin{itemize}
 		\item \texttt{wget http://www.example.com \hyphen O example.html}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Downloader Script}
+	\begin{verbatim}
+		url="$1"
+		outfile="$2"
+		
+		wget "$url" -O "$outfile"
+	\end{verbatim}
+\end{frame}
+
+\section{Substitution}
+
+\begin{frame}{Find/Replace}
+	To perform the substitutions, we need find and replace.
+	
+	Finding is done by \texttt{grep}.
+	\begin{itemize}
+		\item \texttt{grep}: Globally search a Regular Expression and Print
+	\end{itemize}
+	\texttt{grep} reads in lines and prints them if they match.
+	
+	\texttt{\textasciicaret C} kills the program when you're done.
+\end{frame}
+
+\begin{frame}{Regular Expression}
+	\begin{itemize}
+		\item A string matches itself
+		\begin{itemize}
+			\item \text{grep "cat"}
+		\end{itemize}
+		\item \texttt{.} matches any single character
+		\begin{itemize}
+			\item \text{grep "c.t"}
+		\end{itemize}
+		\item \texttt{*} matches the preceding character 0 or more times
+		\begin{itemize}
+			\item \text{grep "ca*t"}
+			\item \text{grep "c.*t"}
+		\end{itemize}
+		\item \texttt{[]} match any character insdie them
+		\begin{itemize}
+			\item \text{grep "[Cc]at"}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{More \texttt{grep}}
+	Some \texttt{grep} flags:
+	\begin{itemize}
+		\item \text{\hyphen r}: Recursive
+		\item \text{\hyphen i}: case Insensitive
+		\item \text{\hyphen v}: inVert match
+		\item \text{\hyphen F}: Fixed string, disable regex
+		\item \text{\hyphen E}: Extended regex
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Substitution}
+	Now we have to perform the substitutions. We'll do 2 for now.
+	\begin{itemize}
+		\item car $\to$ cat
+		\item electric $\to$ atomic
 	\end{itemize}
 \end{frame}
 
