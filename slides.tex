@@ -396,7 +396,7 @@
 	\begin{verbatim}
 		#!/bin/bash
 		
-		readonly usage="Usage: news URL OUTFILE"
+		readonly usage="Usage: $0 URL OUTFILE"
 		
 		url="$1"
 		outfile="$2"
@@ -502,7 +502,7 @@
 \begin{frame}[fragile]{Conditionals in the Script}
 	\begin{verbatim}
 		#!/bin/bash
-		readonly usage="Usage: news URL OUTFILE"
+		readonly usage="Usage: $0 URL OUTFILE"
 		
 		if [ $# -ne 2 ]; then
 		    echo "$usage"
