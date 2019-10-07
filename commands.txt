@@ -17,7 +17,9 @@ ls
 cd ~
 
 mkdir shell-lecture
+ls
 rmdir shell-lecture
+ls
 mkdir shell-lecture
 cd shell-lecture
 touch a.txt
@@ -30,7 +32,7 @@ mv d.txt e.txt
 ls
 rm e.txt
 ls
-rm -i c.txt
+rm -i c.txt #y or n
 ls
 cd ..
 rmdir shell-lecture #Should fail
@@ -55,11 +57,15 @@ nano blah.txt
 mkdir shell-lecture
 cd shell-lecture
 touch misspelled.csv
+ls
 mv misspelled.csv spelled.csv
+ls
 touch 'Old File.txt'
+ls
 mv 'Old File.txt' 'New File.txt'
+ls
 
-man ls
+man ls #q to quit
 man cat
 man mv
 man rm
@@ -90,6 +96,7 @@ echo $?
 test ! horse = dog
 echo $?
 [ 2 -eq 3 #Should fail
+echo $?
 [ 2 -eq 3 ]
 echo $?
 
@@ -97,11 +104,13 @@ foo=dog
 if [ $foo = dog ]; then echo Worked; fi
 foo=cat
 if [ $foo = dog ]; then echo Worked; fi
+if [ $foo = dog ]; then echo Worked; else echo Failed; fi
+
 
 foo=""
 while [ "$foo" != aaaaaaaa ]; do echo "$foo"; foo="a$foo"; done
 
-for name in John Mary Poppy; echo "Hello $name"; done
+for name in John Mary Poppy; do echo "Hello $name"; done
 for i in {1..5}; do echo "Iteration $i"; done
 
 touch a.txt b.txt a.csv b.csv
@@ -112,9 +121,6 @@ echo *'.txt'
 echo *".txt"
 
 foo=$(ls)
-echo $foo
-echo "$foo"
-foo="$(ls)"
 echo $foo
 echo "$foo"
 
@@ -137,10 +143,14 @@ grep "[Cc]at"
 sed s/car/cat/
 sed s/car/cat/g
 
-wget https://en.wikipedia.org/wiki/Electric_car -O car.html
-sed s/car/cat/g < car.html
-sed s/car/cat < car.html > cat.html
-ls | sed s/car/cat/g
+wget www.example.com -O example.html
+cat example.html
+sed s/body/BDY/g < example.html
+sed s/body/BDY/g < example.html > example2.html
+ls
+cat example2.html
+ls
+ls | sed s/txt/text/g
 
 wget www.example.com -q -O -
 
