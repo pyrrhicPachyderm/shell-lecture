@@ -8,7 +8,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern} %Makes \textasciitilde not raised.
-\usepackage{inconsolata} %A nice monospace font
+%\usepackage{inconsolata} %A nice monospace font that is too indistinguishable from tehe default font
 \newcommand\hyphen{\char`\-}
 \newcommand\textasciicaret{\textasciicircum}
 
@@ -591,7 +591,7 @@
 			\item \text{grep "ca*t"}
 			\item \text{grep "c.*t"}
 		\end{itemize}
-		\item \texttt{[]} match any character insdie them
+		\item \texttt{[]} match any character inside them
 		\begin{itemize}
 			\item \text{grep "[Cc]at"}
 		\end{itemize}
@@ -609,11 +609,53 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}{How to Ace Open Book Exams}
+	If you have a folder with the PDF lecture slides:
+	\begin{itemize}
+		\item \text{pdfgrep \hyphen ri "key word from the question"}
+	\end{itemize}
+\end{frame}
+
 \begin{frame}{Substitution}
 	Now we have to perform the substitutions. We'll do 2 for now.
 	\begin{itemize}
 		\item car $\to$ cat
 		\item electric $\to$ atomic
+	\end{itemize}
+	
+	Finding with \texttt{grep} is all well and good, but we want find and replace.
+\end{frame}
+
+\begin{frame}{Automated Editing}
+	We use \texttt{sed}.
+	\begin{itemize}
+		\item \texttt{sed}: Stream EDitor
+	\end{itemize}
+	\texttt{sed} does a lot of things
+	Take a look in \texttt{man sed}.
+	\begin{itemize}
+		\item Find/replace
+		\item Delete/duplicate lines
+		\item Perform line wrapping
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Find \& Replace}
+	The most common use of \texttt{sed} is find and replace.
+	\begin{itemize}
+		\item \texttt{sed "s/regex/replacement/"}: first time per line
+		\item \texttt{sed "s/regex/replacement/g"}: Global
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Standard Input/Output}
+	We can find and replace, but how do we put our file into \texttt{sed}?
+	
+	We need to understand input and output.
+	\begin{itemize}
+		\item \texttt{0}: standard input
+		\item \texttt{1}: standard output
+		\item \texttt{2}: standard error
 	\end{itemize}
 \end{frame}
 
