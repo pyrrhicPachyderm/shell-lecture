@@ -548,11 +548,15 @@
 	
 	We will use \texttt{wget}.
 	\begin{itemize}
-		\item \texttt{wget http://www.example.com}
+		\item \texttt{wget www.example.com}
 	\end{itemize}
-	We can use \texttt{\hyphen O} to set the output file.
+	\texttt{\hyphen O} to set the output file.
 	\begin{itemize}
-		\item \texttt{wget http://www.example.com \hyphen O example.html}
+		\item \texttt{wget www.example.com \hyphen O example.html}
+	\end{itemize}
+	\texttt{\hyphen q} to remove progess bar and such.
+	\begin{itemize}
+		\item \texttt{wget www.example.com \hyphen q \hyphen O example.html}
 	\end{itemize}
 \end{frame}
 
@@ -561,7 +565,7 @@
 		url="$1"
 		outfile="$2"
 		
-		wget "$url" -O "$outfile"
+		wget "$url" -q -O "$outfile"
 	\end{verbatim}
 \end{frame}
 
@@ -634,7 +638,7 @@
 	\begin{itemize}
 		\item \texttt{sed}: Stream EDitor
 	\end{itemize}
-	\texttt{sed} does a lot of things
+	\texttt{sed} does a lot of things.
 	Take a look in \texttt{man sed}.
 	\begin{itemize}
 		\item Find/replace
@@ -676,6 +680,47 @@
 		\item \texttt{sed "s/car/cat/g" < car.html}
 		\item \texttt{sed "s/car/cat/g" < car.html > cat.html}
 		\item \texttt{ls | sed "s/car/cat/g"}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{One Small Note}
+	Many programs use \texttt{\hyphen} as a filename to mean standard out.
+	\begin{itemize}
+		\item \texttt{wget www.example.com \hyphen q \hyphen O {\hyphen}}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{News Script}
+	\begin{verbatim}
+		url="$1"
+		outfile="$2"
+		
+		wget "$url" -q -O - |
+		    sed 's/car/cat/g' |
+		    sed 's/electric/atomic/g' > "$outfile"
+	\end{verbatim}
+\end{frame}
+
+\begin{frame}{Extensions}
+	More things to do with the script:
+	\begin{itemize}
+		\item Handle capital letters.
+		\item Read substitutions from a file.
+		\item Read URLs from a file.
+		\begin{itemize}
+			\item Separate output file per URL.
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{More Things to Learn}
+	\begin{itemize}
+		\item \texttt{find}: find files
+		\item \texttt{wc}: word count
+		\item \texttt{awk}: a programming language for data tables
+		\item \texttt{read}: read a file one line at a time
+		\item \texttt{shift}, \texttt{getopt}: more command line arguments
+		\item \texttt{\&}, \texttt{\textasciicaret Z}, \texttt{bg}, \texttt{fg}: run in the background
 	\end{itemize}
 \end{frame}
 
